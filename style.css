@@ -273,7 +273,10 @@ hr{
     background-color: #009b43;
     color:#fff;
 }
-
+.products-section{
+    max-width: calc(100% - 20px);
+    margin: 20px auto;
+}
 
 .products{
     display: flex;
@@ -361,6 +364,8 @@ hr{
     top:50%
 
 }
+
+
 @media only screen and (max-width: 1058px) {
     .menus{
         display: none;
@@ -368,6 +373,8 @@ hr{
     .details{
         flex-direction: column;
         align-items: center;
+        justify-content: space-between;
+        height: 1122px;
     }
     .mission, .history, .about{
         width: calc(100% - 20px)
