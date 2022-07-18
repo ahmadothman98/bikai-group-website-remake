@@ -288,7 +288,7 @@ hr{
     position: relative;
     max-width: 1190px;
 }
-.products-title{
+.green-title{
     font-size:26px;
     color: #009b43;
 
@@ -363,6 +363,42 @@ hr{
     right: 8px;
     top:50%
 
+}
+
+.brands-news-section{
+    display: flex;
+    flex-direction: row-reverse;
+    margin: 20px auto;
+    position: relative;
+    max-width: 1190px;
+}
+.brands-section,.news-section{
+    border: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: calc(100%/2 - 10px);
+    height: 412px;
+    padding-top: 20px;
+}
+
+.brands > div, .news > div{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 20px;
+    margin-right: 20px;
+}
+
+.manara-text,.bekai-text{
+    max-width: 50%;
+    font-size: 15px;
+    text-align: justify;
+    direction: rtl;
+    color: #7a7a7a;
+    margin-bottom: 20px;
+    margin: 10px;
 }
 
 
