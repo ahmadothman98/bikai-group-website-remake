@@ -2,6 +2,7 @@
 body{
     margin: 0;
     padding: 0;
+    position: relative;
 }
 header{
     display: flex;
@@ -26,6 +27,19 @@ hr{
     border:none;
     background-color: #ccc;
     color: #ccc;
+}
+footer{
+    position: absolute;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 100%;
+    height: 77px;
+    bottom: 0;
+    color: #fff;
+    font-size: 20px ;
 }
 .header-banner{
     position: absolute;
@@ -194,6 +208,10 @@ hr{
     position: absolute;
     max-height: 650px;
 }
+.pepper, .food, .cleaning{
+    position: relative;
+}
+
 .pepper{
     z-index: 15;
     right: 0;
@@ -206,6 +224,32 @@ hr{
     z-index: 17;
     right: calc(200%/3);
 }
+.nav-div{
+    position: absolute;
+    right: 0;
+    bottom: 65px;
+    width: 263px;
+    height: 40px;
+    padding: 15px 20px;
+    background: rgba(0, 0, 0, 0.8);
+    direction: rtl;
+    display:flex;
+    align-items: center;
+    color: #fff;
+    font-size: 25px;
+    font-weight: bold;
+    
+}
+.nav-next{
+    position: absolute;
+    left: 20px;    
+    background:url(./assets/img/icons.png);
+    background-position: -14px -75px;
+    width: 16px ;
+    height: 25px;
+}
+
+
 .details-section{
     margin: 690px auto 0 auto;
     max-width: 1220px;
@@ -437,6 +481,154 @@ hr{
     margin: 10px;
     direction: rtl;
 }
+.contact-title{
+    font-size: 26px;
+    margin-top: 20px;
+}
+.contact-text{
+    margin:20px 0 40px 0;
+    direction: rtl;
+    text-align: center;
+    width: 755px;
+    
+}
+.contact-us-section{
+    background:url(./assets/img/green-back.png);
+    background-attachment: fixed;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 20px;
+}
+.contact-us-section hr{
+background-color: #fff;}
+.contact-details-form{
+    display: flex;
+    width: 960px;
+    max-width:965px;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+
+}
+.contact-details{
+    display: flex;
+    flex-direction: row-reverse;
+    margin:20px;
+}
+.contact-icons{
+    background: url(./assets/img/icons.png);
+    background-position: right center;
+    width: 56px;
+    height: 206px;
+    margin-left: 40px;
+}
+.contact-location-time{
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
+}
+
+.location-title,.time-title{
+    font-weight: 600;
+    direction: rtl;
+}
+
+.location-details, .time-details{
+    font-size: 15px;
+    direction: rtl;
+
+}
+
+.contact-form form{
+    display: flex;
+    flex-direction: column;
+    max-width: 465px;
+    direction: rtl;
+    gap: 10px;
+    align-items: flex-end;
+}
+.contact-form form button{
+    cursor: pointer;
+}
+.contact-form form button:focus{
+    background-color: #fff;
+}
+.contact-form input{
+    width: 220px;
+    height: 38px;
+    border: 1px solid #fff;
+    color: #fff;
+    background-color: #009b43;
+    
+}
+.name-phone,.email-subject{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.name-phone input:focus,.email-subject input:focus{
+    background-color: #fff;
+}
+.message textarea{
+    width: 458px;
+    height: 110px;
+    resize: none;
+    background-color: #009b43;
+    color: #fff;
+    border: 1px solid #fff;
+}
+.message textarea:focus{
+    background-color: #fff;
+}
+.contact-form button{
+    width: 158px;
+    height: 38px;
+    background-color: #009b43;
+    color: #fff;
+    border: 1px solid #fff;
+}
+
+.rights{
+    direction: rtl;
+
+}
+.social{
+    display: flex;
+    flex-direction: row-reverse ;
+    gap: 20px;
+}
+.social li{
+    background: transparent url(./assets/img/icons.png);
+    width: 40px;
+    height: 40px;
+}
+.social li:hover{
+    opacity: 0.7;
+}
+.social li a{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.twitter{
+    background-position: -177px -123px !important;
+}
+.facebook{
+    background-position: -121px -123px !important;
+}
+.youtube{
+    background-position: -66px -123px !important;
+}
+.instagram{
+    background-position: -10px -123px !important;
+}
+#map{
+    width: 100%;
+    height: 650px;
+}
+
+
 @media only screen and (max-width: 1058px) {
     .menus{
         display: none;
@@ -449,6 +641,14 @@ hr{
     }
     .mission, .history, .about{
         width: calc(100% - 20px)
+    }
+    .brands-news{
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    .brands-news > div{
+        width: 100%;
     }
 
 }

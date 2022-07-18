@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
+    <script  src="./script.js" defer></script>
+
     <title>Sainik-Traiding-Compay|Bekai-Group|شركة-سينيق-التجارية|مجموعة البقاعي</title>
 
 </head>
@@ -31,9 +33,9 @@
                     <a href="http://www.bekai-group.com/ar/sainik-traiding-company">الرئيسية</a>
                 </nav>
                 <nav class="buttom-nav">
-                    <a href="">خدماتنا</a>
-                    <a href="">فروعنا</a>
-                    <a href="">منتجاتنا</a>
+                    <a href="http://www.bekai-group.com/ar/services">خدماتنا</a>
+                    <a href="http://www.bekai-group.com/ar/locate-our-branches">فروعنا</a>
+                    <a href="http://www.bekai-group.com/ar/our-products">منتجاتنا</a>
 
                 </nav>
             </div>
@@ -43,7 +45,7 @@
         </header>
         
         <div class="slide-banner">
-            <div class="slide-banner-contents" id="first">
+            <div class="slide-banner-contents" id="content1">
                 <h2 class="slide-banner-title">
                     جديدنا التميز في مخبزنا على الدوام
                 </h2>
@@ -51,7 +53,7 @@
                     خبز كبير ، خبز صغير ، شاميات، كعك على أنواعه ، كرواسون و فرنجي على انواعه.
                 </p>
             </div>
-            <div class="slide-banner-contents" id="second">
+            <div class="slide-banner-contents" id="content2">
                 <h2 class="slide-banner-title">
                     عرض رمضان كريم
                 </h2>
@@ -59,7 +61,7 @@
                     بمناسبة الشهر الفضيل اشتري بقيمة 50،000 ليرة لبنانية من سوبر ماركت البقاعي وادخل السحب على هدية قيمة، رمضان كريم.
                 </p>
             </div>
-            <div class="slide-banner-contents" id="third">
+            <div class="slide-banner-contents" id="content3">
                 <h2 class="slide-banner-title">
                     كل عام وانتم بخير، رمضان كريم
                 </h2>
@@ -68,7 +70,7 @@
                 </p>
             </div>
             <div class="slide-banner-nav">
-                <div class="left-arrow"></div>
+                <div class="left-arrow" id="left-arrow"></div>
                 <div class="dots">
                     <div class="first-dot active-dot"></div>
                     <div class="second-dot"></div>
@@ -81,12 +83,30 @@
     <div class="categories">
         <div class="pepper">
             <img src="./assets/img/peppers.bmp" alt="">
+            <a class="nav-div" href="http://www.bekai-group.com/ar/our-products/category/1/">
+                <div>التوابل والحبوب</div>
+                <span class="nav-next"></span>
+            </a>
         </div>
         <div class="food">
             <img src="./assets/img/food.bmp" alt="">
+            <a class="nav-div" href="http://www.bekai-group.com/ar/our-products/category/2/">
+                <div>
+                    مكونات الطعام
+                </div>
+                <span class="nav-next"></span>
+
+            </a>
         </div>
         <div class="cleaning">
             <img src="./assets/img/cleaning.bmp" alt="">
+            <a class="nav-div" href="http://www.bekai-group.com/ar/our-products/category/3/">
+                <div>
+                    المنظفات
+                </div>
+                <span class="nav-next"></span>
+
+            </a>
         </div>
     </div>
     <div class="details-section">
@@ -252,5 +272,84 @@
             </div>
         </div>
     </div>
+    <div class="contact-us-section">
+        <div class="contact-title">
+            اتصل بنا
+        </div>
+        <hr>
+        <div class="contact-text">
+            ارسل لنا تحياتك، ونحن في انتظار كل سؤال لديك، فلا تتردد في أن تطلب منا. نحن لا نتردد في الإجابة على كل ما تحتاج إليه.
+        </div>
+        <div class="contact-details-form">
+            <div class="contact-details">
+                <div class="contact-icons">
+
+                </div>
+                <div class="contact-location-time">
+                    <div class="contact-location">
+                        <div class="location-title">
+                            زوروا فرعنا الرئيسي
+                        </div>
+                        <div class="location-details">
+                            العنوان جسر سينيق، صيدا 
+                            <br>
+                            هاتف : 9617221306+
+                            <br>
+                            ايميل: info@bekai-group.com
+                        </div>
+                    </div>
+                    <div class="contact-time">
+                        <div class="time-title">
+                            دوام العمل
+                        </div>
+                        <div class="time-details">
+                            الاثنين الى السبت
+                            <br>
+                            من 8 ص حتى 5 م
+                            <br>
+                            العطلة الاسبوعية يوم الأحد
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form">
+                <form action="">
+                    <div class="name-phone">
+                        <input type="text" placeholder="الاسم الكامل">
+                        <input type="text" name="" id="" placeholder="الجوال او الهاتف">
+                    </div>
+                    <div class="email-subject">
+                        <input type="text" name="" id="" placeholder="الايميل">
+                        <input type="text" name="" id="" placeholder="الموضوع">
+                    </div>
+                    <div class="message">
+                        <textarea name="" id="" placeholder="الرسالة"></textarea>
+                    </div>
+                    <button>ارسل >></button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="map">
+    </div>
+    <footer>
+        <div class="rights">
+            جميع الحقوق محفوظة © البقاعي 2016
+        </div>
+        <ul class="social">
+            <li class="twitter">
+                <a href="https://twitter.com/Bekai_Group"></a>
+            </li>
+            <li class="facebook">
+                <a href="https://www.facebook.com/Bekai-Group-547570085403263/"></a>
+            </li>
+            <li class="youtube">
+                <a href="https://www.youtube.com/channel/UCwxSKqBFKv97MFX_FydzLOA"></a>
+            </li>
+            <li class="instagram">
+                <a href="https://www.instagram.com/bekaigroup/"></a>
+            </li>
+        </ul>
+    </footer>
 </body>
 </html>
