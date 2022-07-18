@@ -365,12 +365,20 @@ hr{
 
 }
 
-.brands-news-section{
+.brands-news{
     display: flex;
     flex-direction: row-reverse;
     margin: 20px auto;
+    max-width: 1220px;
     position: relative;
-    max-width: 1190px;
+    justify-content: space-between;
+    gap: 30px;
+    margin: 20px auto;
+}
+.brands-news-section{
+    max-width: calc(100% - 20px);
+    margin: 0 auto;
+
 }
 .brands-section,.news-section{
     border: 1px solid #ccc;
@@ -382,7 +390,7 @@ hr{
     padding-top: 20px;
 }
 
-.brands > div, .news > div{
+.brands > div{
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
@@ -395,13 +403,40 @@ hr{
     max-width: 50%;
     font-size: 15px;
     text-align: justify;
-    direction: rtl;
     color: #7a7a7a;
     margin-bottom: 20px;
     margin: 10px;
+    direction: rtl;
+
 }
 
+.news > div{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    margin-top: 20px;
+    margin-right: 20px;
+    justify-content:flex-start;
+    gap: 30px;
+}
+.news-title{
+    color: #009b43;
+    font-size: 20px;
+}
 
+.news-details{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+.news-text{
+    font-size: 15px;
+    text-align: justify;
+    color: #7a7a7a;
+    margin-bottom: 20px;
+    margin: 10px;
+    direction: rtl;
+}
 @media only screen and (max-width: 1058px) {
     .menus{
         display: none;
