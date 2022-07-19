@@ -168,10 +168,7 @@ footer{
     from { opacity: 0; }
     to { opacity: 1; }
 }
-@keyframes fadeOut {
-    from { display: flex; }
-    to { opacity: 0; }
-}
+
 /* making the navigation arrows and dots*/
 .slide-banner-nav{
     display: flex;
@@ -337,9 +334,16 @@ footer{
     border: 1px solid #ccc;
     margin: 10px auto;
     padding: 20px 15px;
-    position: relative;
     max-width: 1190px;
     height: 463px;
+    position: relative;
+
+}
+.products-list-container{
+    position: relative;
+    overflow: hidden;
+    width:  1110px;
+    height: 100%;
 }
 .green-title{
     font-size:26px;
@@ -349,10 +353,11 @@ footer{
 
 .products-list{
     display: flex;
-    width: calc(100% - 80px);
-    padding: 0;
-    overflow: hidden;
+    width: 100%;
     position: absolute;
+    padding: 0;
+    left:0;
+    bottom: 0;
     
 }
 
@@ -406,6 +411,7 @@ footer{
     background: url(./assets/img/icons.png);
     position: absolute;
     cursor: pointer;
+    z-index: 2;
 }
 .left-arrow-green{
     background-position: -230px -18px;
