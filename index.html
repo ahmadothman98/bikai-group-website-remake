@@ -13,31 +13,68 @@
 <body>
     <div class="header-banner">
         <header>
-            <div class="menus">
-                <div class="topbar">
-                        <form class="search" >
-                            <input class="search-input" type="text">
-                            <div class="search-icon"></div>
-                        </form>
-                    
+            <div id="burger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="res-menus hide-menu" id="res_menu" >
+                <div>
+                    <form class="search" method="GET" action="http://www.bekai-group.com/ar/our-products"  role="form" >
+                        <input type="text" name="pname" value="" placeholder="" class="search-input" >
+                        <input type="hidden" value="ar" name="lang"/>
+
+                        <div class="search-icon"></div>
+                    </form>
+                </div>
+                <div class="res-langs">
+
                     <div class="english" href="#">English</div>
                     <span class="vbar">|</span>
-                    <div class="arabic" href="#">عربي</div>
-                    
+                    <div class="arabic active-language" href="#">عربي</div>
                 </div>
                 
-                <nav class="top-nav">
+                
+            
+                <nav class="res-nav">
+                    <a href="http://www.bekai-group.com/ar/services">خدماتنا</a>
+                    <a href="http://www.bekai-group.com/ar/locate-our-branches">فروعنا</a>
+                    <a href="http://www.bekai-group.com/ar/our-products">منتجاتنا</a>
                     <a href="http://www.bekai-group.com/#cntct">اتصل بنا</a>
                     <a href="http://www.bekai-group.com/ar/careers">وظائف</a>
                     <a href="http://www.bekai-group.com/ar/about-us">عن الشركة</a>
                     <a href="http://www.bekai-group.com/ar/sainik-traiding-company">الرئيسية</a>
-                </nav>
-                <nav class="buttom-nav">
-                    <a href="http://www.bekai-group.com/ar/services">خدماتنا</a>
-                    <a href="http://www.bekai-group.com/ar/locate-our-branches">فروعنا</a>
-                    <a href="http://www.bekai-group.com/ar/our-products">منتجاتنا</a>
+
 
                 </nav>
+                </div>
+                <div class="menus" >
+                    <div class="topbar">
+                            <form class="search" method="GET" action="http://www.bekai-group.com/ar/our-products"  role="form" >
+                                <input type="text" name="pname" value="" placeholder="" class="search-input" >
+                                <input type="hidden" value="ar" name="lang"/>
+
+                                <div class="search-icon"></div>
+                            </form>
+                        
+                        <div class="english" href="#">English</div>
+                        <span class="vbar">|</span>
+                        <div class="arabic" href="#">عربي</div>
+                        
+                    </div>
+                    
+                    <nav class="top-nav">
+                        <a href="http://www.bekai-group.com/#cntct">اتصل بنا</a>
+                        <a href="http://www.bekai-group.com/ar/careers">وظائف</a>
+                        <a href="http://www.bekai-group.com/ar/about-us">عن الشركة</a>
+                        <a href="http://www.bekai-group.com/ar/sainik-traiding-company">الرئيسية</a>
+                    </nav>
+                    <nav class="buttom-nav">
+                        <a href="http://www.bekai-group.com/ar/services">خدماتنا</a>
+                        <a href="http://www.bekai-group.com/ar/locate-our-branches">فروعنا</a>
+                        <a href="http://www.bekai-group.com/ar/our-products">منتجاتنا</a>
+
+                    </nav>
             </div>
             <a class="logo" href="http://www.bekai-group.com/ar/sainik-traiding-company">
                 <img src="./assets/img/logo.bmp" alt="logo">

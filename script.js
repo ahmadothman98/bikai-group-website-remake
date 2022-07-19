@@ -120,8 +120,11 @@ function changeBanner(current,previous){
 }
 function navDot(dot){
     console.log("dot "+dot)
-    changeBanner(dot,current)
-    current = dot;
+    if(dot !== current){
+        changeBanner(dot,current)
+        current = dot;
+    }
+
 
 }
 
@@ -265,6 +268,24 @@ insertProducts();
 right_green_arrow.addEventListener('click',rightProduct);
 left_green_arrow.addEventListener('click',leftProduct)
 //
+
+// resposnive menu
+var res_menu = document.getElementById('res_menu');
+document.getElementById("burger").addEventListener('click',()=>{
+    res_menu.classList.toggle('hide-menu');
+    res_menu.classList.toggle('show-menu');
+    setTimeout(()=>{  
+        if(res_menu.classList.contains('hide-menu')){
+            res_menu.style.display = "none";
+            console.log("hide")
+        }
+        else{
+            res_menu.style.display = "";
+        }
+    },100)
+
+})
+
 
 
 ////////////////////////////////////////////////////////////////
