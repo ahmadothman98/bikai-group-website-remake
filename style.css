@@ -157,13 +157,21 @@ footer{
     direction: rtl;
 
 }
-#second{
+#content2,#content3{
     display: none;
 }
-#third{
-    display: none;
+.show-content{
+    animation: fadeIn 500ms;
 }
 
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes fadeOut {
+    from { display: flex; }
+    to { opacity: 0; }
+}
 /* making the navigation arrows and dots*/
 .slide-banner-nav{
     display: flex;
@@ -208,9 +216,7 @@ footer{
     position: absolute;
     max-height: 650px;
 }
-.pepper, .food, .cleaning{
-    position: relative;
-}
+
 
 .pepper{
     z-index: 15;
@@ -219,10 +225,12 @@ footer{
 .food{
     z-index: 16;
     right: calc(100%/3);
+    transition: right 500ms ease;
 }
 .cleaning{
     z-index: 17;
     right: calc(200%/3);
+    transition: right 500ms ease;
 }
 .nav-div{
     position: absolute;
@@ -331,6 +339,7 @@ footer{
     padding: 20px 15px;
     position: relative;
     max-width: 1190px;
+    height: 463px;
 }
 .green-title{
     font-size:26px;
@@ -343,7 +352,8 @@ footer{
     width: calc(100% - 80px);
     padding: 0;
     overflow: hidden;
-    margin: 0 40px;
+    position: absolute;
+    
 }
 
 .product{

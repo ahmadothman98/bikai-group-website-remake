@@ -1,4 +1,141 @@
-  var script = document.createElement('script');
+const contents = ["content1","content2","content3"];
+const dots = ["first-dot","second-dot","third-dot"];
+var current = 0;
+var interval;
+
+var left_arrow = document.getElementById("left_arrow");
+var right_arrow = document.getElementById("right_arrow");
+
+var pepper = document.getElementsByClassName('pepper')[0];
+var food =  document.getElementsByClassName('food')[0];
+var cleaning =  document.getElementsByClassName('cleaning')[0];
+
+
+
+////////////////////////// Functions /////////////////////////////
+
+//banner functions
+function leftArrow(){
+    // left arrow banner click handling
+
+    if (current !== 0){
+        current -=1;
+        changeBanner(current,current+1);
+        // console.log(current);
+    }
+
+    else{
+        current = 2;
+        changeBanner(current,0)
+        // console.log(current);
+    }
+
+}
+function rightArrow(){
+    // right arrow banner click handling
+
+    if (current !== 2){
+        current +=1;
+        changeBanner(current,current-1);
+        // console.log(current);
+    }
+
+    else{
+        current = 0;
+        changeBanner(current,2)
+        // console.log(current);
+    }
+}
+
+function changeBanner(current,previous){
+    // handles banner navigation
+
+    document.getElementById(contents[previous]).style.display = "none"
+    document.getElementById(contents[current]).style.display = "flex"
+    document.getElementById(contents[current]).classList.add("show-content")
+    document.getElementById(dots[current]).classList.add("active-dot")
+    document.getElementById(dots[previous]).classList.remove("active-dot")
+
+    clearInterval(interval);
+    intervalNav();
+}
+
+function intervalNav(){
+    // auto change banner every 5 seconds
+    interval = setInterval( function(){
+        rightArrow()
+    },5000)
+}
+
+//categories functions
+
+function handlePepper(event){
+    // console.log("pepper");
+    if(event.type === 'mouseover'){
+        // console.log("mouse is over")
+        
+        food.style.right = "50%";
+        cleaning.style.right = "75%"
+    }
+    else if(event.type === 'mouseout'){
+        // console.log("mouse is out")
+        food.style.right = "calc(100%/3)"
+        cleaning.style.right = "calc(200%/3)"
+    }
+}
+
+function handleFood(event){
+    // console.log("food")
+    if(event.type === 'mouseover'){
+        // console.log("mouse is over")
+        food.style.right = "25%";
+        cleaning.style.right = "75%"
+
+    }
+    else if(event.type === 'mouseout'){
+        // console.log("mouse is out")
+        food.style.right = "calc(100%/3)"
+        cleaning.style.right = "calc(200%/3)"
+    }
+}
+
+function handleCleaning(event){
+    console.log("cleaning")
+    if(event.type === 'mouseover'){
+        // console.log("mouse is over")
+        food.style.right = "25%";
+        cleaning.style.right = "50%"
+    }
+    else if(event.type === 'mouseout'){
+        // console.log("mouse is out")
+        food.style.right = "calc(100%/3)"
+        cleaning.style.right = "calc(200%/3)"
+    }
+}
+
+//// End Of Functions ///////////////////////////////////////////////////////////////
+
+
+
+// nav banner
+intervalNav(); // auto nav banner
+left_arrow.addEventListener('click',leftArrow);
+right_arrow.addEventListener('click',rightArrow);
+//
+
+
+//categories
+pepper.onmouseover = pepper.onmouseout = handlePepper;
+food.onmouseover = food.onmouseout = handleFood;
+cleaning.onmouseover = cleaning.onmouseout = handleCleaning;
+//
+
+
+////////////////////////////////////////////////////////////////
+//////////////////////////// map //////////////////////////////
+//////////////////////////////////////////////////////////////
+
+var script = document.createElement('script');
   script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyBtwgyqv12iElBQTpy0h0xZU3mvMnhGXBI&callback=initMap";
   script.async = true;
   
@@ -64,15 +201,4 @@ window.initMap = initMap;
   // Append the 'script' element to 'head'
 document.head.appendChild(script);
 
-var current = "content1";
-
-function leftArrow(){
-        current = "content" + toString(parseInt(current[-1])+1);
-        //showSecond();
-        console.log("current");
-
-}
-
-document.getElementsByClassName("right-arrow").addEventListener('click',rightArrow)
-var left_arrow = document.getElementsById("left-arrow");
-left_arrow.addEventListener('click',leftArrow)
+/////////////////////////////////////////
