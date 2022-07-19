@@ -767,7 +767,10 @@ background-color: #fff;}
     }
 
     .contact-text{
-        width: 400px;
+        width: 80%;
+    }
+    .slide-banner-text{
+        width: 80%;
     }
     #burger{
         display: flex;
@@ -782,6 +785,18 @@ background-color: #fff;}
     }
     header{
         height: 100px;
+    }
+    .name-phone,.email-subject{
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    .contact-form form{
+        align-items: center;
+        width: 220px;
+    }
+    .contact-form form textarea{
+        width: 210px;
     }
 }
 @media only screen and (min-width: 1058px) {
