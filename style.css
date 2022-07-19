@@ -76,6 +76,8 @@ footer{
     z-index:11;
     position: absolute;
     right: 0;
+    content:url("./assets/img/logo.bmp");
+    
 }
 .top-nav{
     display: flex;
@@ -555,7 +557,7 @@ footer{
     margin:20px 0 40px 0;
     direction: rtl;
     text-align: center;
-    width: 755px;
+    max-width: 755px;
     
 }
 .contact-us-section{
@@ -631,6 +633,7 @@ background-color: #fff;}
 .name-phone,.email-subject{
     display: flex;
     justify-content: space-between;
+
     width: 100%;
 }
 .name-phone input:focus,.email-subject input:focus{
@@ -736,12 +739,51 @@ background-color: #fff;}
     .brands-news > div{
         width: 100%;
     }
-    
+    .contact-us-section{
+        width: calc(100% - 20px);
+        margin: 0 10px;
+    }
+
+    .contact-details-form{
+        flex-direction: column;
+        align-items: center;
+        width: calc(100% - 60px);
+        margin: 0 auto;
+        padding: 20px;
+    }
+    .contact-form form{
+        width: calc(100% - 20px);
+        margin: 20px auto;
+    }
+    .contact-form form input{
+        width: 210px;
+        margin: 0 5px;
+
+    }
+    .contact-form form textarea{
+        width: 415px;
+        margin: 0 5px;
+
+    }
+
+    .contact-text{
+        width: 400px;
+    }
     #burger{
         display: flex;
+        justify-content: center;
+        z-index: 200;
+    }
+
+}
+@media only screen and (max-width: 460px) {
+    .logo{
+        content:url("./assets/img/news-logo.png");
+    }
+    header{
+        height: 100px;
     }
 }
-
 @media only screen and (min-width: 1058px) {
     .res-menus{
         display: none;

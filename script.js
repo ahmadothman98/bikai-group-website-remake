@@ -2,6 +2,9 @@ const contents = ["content1","content2","content3"];
 const dots = ["first-dot","second-dot","third-dot"];
 var current = 0;
 var interval;
+var res_menu = document.getElementById('res_menu');
+res_menu.style.display = "none";
+
 
 const left_arrow = document.getElementById("left_arrow");
 const right_arrow = document.getElementById("right_arrow");
@@ -270,7 +273,6 @@ left_green_arrow.addEventListener('click',leftProduct)
 //
 
 // resposnive menu
-var res_menu = document.getElementById('res_menu');
 document.getElementById("burger").addEventListener('click',()=>{
     res_menu.classList.toggle('hide-menu');
     res_menu.classList.toggle('show-menu');
