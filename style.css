@@ -191,6 +191,8 @@ footer{
     max-width: 1170px;
     background:rgba(0, 0, 0, 0.8);
     padding-bottom: 20px;
+    height: auto;
+    padding-bottom: 20px;
 }
 .slide-banner-contents{
     display: flex;
