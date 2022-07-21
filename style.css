@@ -502,8 +502,8 @@ footer{
     flex-direction: column;
     align-items: center;
     width: calc(100%/2 - 10px);
-    height: 412px;
-    padding-top: 20px;
+    height: auto;
+    padding: 20px 0 30px 0;
 }
 
 .brands > div{
