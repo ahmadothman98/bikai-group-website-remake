@@ -275,10 +275,18 @@ left_green_arrow.addEventListener('click',leftProduct)
 document.getElementById("burger").addEventListener('click',()=>{
     if(res_menu.style.right === '0px'){
         res_menu.style.right = '-100%'
+        setTimeout(()=>{
+            res_menu.style.display = 'none';
+        },100)
     }
     else{
-        res_menu.style.right = '0px'
+        res_menu.style.display = 'block';
+        setTimeout(()=>{
+            res_menu.style.right = '0px'
+
+        },0)
     }
+
 })
 
 

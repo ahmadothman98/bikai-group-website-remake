@@ -142,6 +142,7 @@ footer{
 }
 
 .res-menus{
+    display: none;
     position: absolute;
     right: -100%;
     top: 0;
@@ -701,7 +702,7 @@ background-color: #fff;}
     top: calc(50%-25px);
     flex-direction: column;
     gap: calc(26px/3);
-    margin-left:50px ;
+    margin-left:calc(20% - 50px) ;
 }
 #burger div{
     width: 100%;
@@ -773,11 +774,13 @@ background-color: #fff;}
     .slide-banner-text{
         width: 80%;
     }
+
     #burger{
         display: flex;
         justify-content: center;
         z-index: 200;
     }
+    
 
 }
 @media only screen and (max-width: 460px) {
@@ -798,10 +801,5 @@ background-color: #fff;}
     }
     .contact-form form textarea{
         width: 210px;
-    }
-}
-@media only screen and (min-width: 1058px) {
-    .res-menus{
-        display: none;
     }
 }
