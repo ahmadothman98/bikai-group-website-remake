@@ -758,6 +758,11 @@ background-color: #fff;}
     .contact-form form input{
         width: 210px;
         margin: 0 5px;
+        font-weight: bold;
+
+    }
+    .contact-form form input:focus{
+        color: #009b43;
 
     }
     .contact-form form textarea{
