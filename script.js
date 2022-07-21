@@ -260,9 +260,12 @@ document.getElementById(dots[2]).addEventListener('click',() =>{navDot(2)});
 
 
 //categories
-pepper.onmouseover = pepper.onmouseout = handlePepper;
-food.onmouseover = food.onmouseout = handleFood;
-cleaning.onmouseover = cleaning.onmouseout = handleCleaning;
+if(window.innerWidth > 600){
+    pepper.onmouseover = pepper.onmouseout = handlePepper;
+    food.onmouseover = food.onmouseout = handleFood;
+    cleaning.onmouseover = cleaning.onmouseout = handleCleaning;
+}
+
 //
 
 // products
