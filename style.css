@@ -747,10 +747,7 @@ background-color: #fff;}
     .brands-news > div{
         width: 100%;
     }
-    .contact-us-section{
-        width: calc(100% - 20px);
-        margin: 0 10px;
-    }
+
 
     .contact-details-form{
         flex-direction: column;
