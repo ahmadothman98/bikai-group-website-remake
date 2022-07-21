@@ -6,6 +6,7 @@ body{
     margin: 0;
     padding: 0;
     position: relative;
+    overflow-x: hidden;
 }
 header{
     display: flex;
@@ -18,7 +19,8 @@ header{
     max-width: 1170px;
     margin: 0 auto;
     position: relative;
-}
+    
+}   
 a{
     text-decoration: none;
 }
@@ -139,15 +141,9 @@ footer{
     color:#7a7a7a;
 }
 
-.hide-menu{
-    right: -80%;
-}
-.show-menu{
-    right: 0;
-
-}
 .res-menus{
     position: absolute;
+    right: -100%;
     top: 0;
     z-index: 101;
     width: 80%;
