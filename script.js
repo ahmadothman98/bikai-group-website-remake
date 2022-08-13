@@ -1,74 +1,69 @@
-const contents = ["content1","content2","content3"];
-const dots = ["first-dot","second-dot","third-dot"];
+const contents = ["#content1","#content2","#content3"];
+const dots = ["#first-dot","#second-dot","#third-dot"];
 var current = 0;
 var interval;
-var res_menu = document.getElementById('res_menu');
+var res_menu = $('#res_menu');
 
 
-const left_arrow = document.getElementById("left_arrow");
-const right_arrow = document.getElementById("right_arrow");
+const left_arrow = $("#left_arrow");
+const right_arrow = $("#right_arrow");
 
-const pepper = document.getElementsByClassName('pepper')[0];
-const food =  document.getElementsByClassName('food')[0];
-const cleaning =  document.getElementsByClassName('cleaning')[0];
+const categ1 = $('.categ1');
+const categ2 =  $('.categ2');
+const categ3 =  $('.categ3');
 
-const right_green_arrow = document.getElementsByClassName('right-arrow-green')[0];
-const left_green_arrow = document.getElementsByClassName('left-arrow-green')[0];
 
-var products_left_position = 0;
-var current_product = 6;
-
-const products = [
-    {
-        title: 'منارة شتورة بابا غنوج 180 غ',
-        link: 'http://www.bekai-group.com/ar/products/1/%D9%85%D9%86%D8%A7%D8%B1%D8%A9-%D8%B4%D8%AA%D9%88%D8%B1%D8%A9-%D8%A8%D8%A7%D8%A8%D8%A7-%D8%BA%D9%86%D9%88%D8%AC-180-%D8%BA',
-        image : 'http://www.bekai-group.com/upload/cache/h_200_product_img_1.jpg',
-        quantity : '180 غ صندوق * 24',
-        details : 'أحد أشهى أطباق المازة...' 
-    },
-    {
-        title: 'منارة شتورة بابا غنوج 360 غ',
-        link: 'http://www.bekai-group.com/ar/products/2/%D9%85%D9%86%D8%A7%D8%B1%D8%A9-%D8%B4%D8%AA%D9%88%D8%B1%D8%A9-%D8%A8%D8%A7%D8%A8%D8%A7-%D8%BA%D9%86%D9%88%D8%AC-360-%D8%BA',
-        image : 'http://www.bekai-group.com/upload/cache/h_200_product_img_2.jpg',
-        quantity : '360 غ صندوق *24',
-        details : 'أحد أشهى أطباق المازة...' 
-    },
-    {
-        title: 'منارة شتورة بديل الحامض 1 ليتر',
-        link: 'http://www.bekai-group.com/ar/products/3/%D9%85%D9%86%D8%A7%D8%B1%D8%A9-%D8%B4%D8%AA%D9%88%D8%B1%D8%A9-%D8%A8%D8%AF%D9%8A%D9%84-%D8%A7%D9%84%D8%AD%D8%A7%D9%85%D8%B6-1-%D9%84%D9%8A%D8%AA%D8%B1',
-        image : 'http://www.bekai-group.com/upload/cache/h_200_product_img_3.jpg',
-        quantity : '1 ليتر صندوق * 12',
-        details : 'الطهي لأسرة مشغولة غالبا...' 
-    },
-    {
-        title: 'منارة شتورة شراب 600 مل جلاب',
-        link: 'http://www.bekai-group.com/ar/products/5/%D9%85%D9%86%D8%A7%D8%B1%D8%A9-%D8%B4%D8%AA%D9%88%D8%B1%D8%A9-%D8%B4%D8%B1%D8%A7%D8%A8-600-%D9%85%D9%84-%D8%AC%D9%84%D8%A7%D8%A8',
-        image : 'http://www.bekai-group.com/upload/cache/h_200_product_img_5.jpg',
-        quantity : '600 مل صندوق * 12',
-        details : 'زجاجة الجلاب لدىشركة سينيق...' 
-    },
-    {
-        title: 'منارة شتورة شراب 3.5 ليتر قمر الدين',
-        link: 'http://www.bekai-group.com/ar/products/7/%D9%85%D9%86%D8%A7%D8%B1%D8%A9-%D8%B4%D8%AA%D9%88%D8%B1%D8%A9-%D8%B4%D8%B1%D8%A7%D8%A8-3.5-%D9%84%D9%8A%D8%AA%D8%B1-%D9%82%D9%85%D8%B1-%D8%A7%D9%84%D8%AF%D9%8A%D9%86',
-        image : 'http://www.bekai-group.com/upload/cache/h_200_product_img_7.jpg',
-        quantity : '3.5 صندوق * 4',
-        details : 'مكثف شراب قمر الدين عنصر...' 
-    },
-    {
-        title: 'منارة شتورة شراب 3.5 ليتر جلاب',
-        link: 'http://www.bekai-group.com/ar/products/8/%D9%85%D9%86%D8%A7%D8%B1%D8%A9-%D8%B4%D8%AA%D9%88%D8%B1%D8%A9-%D8%B4%D8%B1%D8%A7%D8%A8-3.5-%D9%84%D9%8A%D8%AA%D8%B1-%D8%AC%D9%84%D8%A7%D8%A8',
-        image : 'http://www.bekai-group.com/upload/cache/h_200_product_img_8.jpg',
-        quantity : '3.5 صندوق * 4',
-        details : 'زجاجة الجلاب لدىشركة سينيق...' 
-    },
-    {
-        title: 'منارة شتورة زيت 4.5 ليتر',
-        link: 'http://www.bekai-group.com/ar/products/74/%D9%85%D9%86%D8%A7%D8%B1%D8%A9-%D8%B4%D8%AA%D9%88%D8%B1%D8%A9-%D8%B2%D9%8A%D8%AA-4.5-%D9%84%D9%8A%D8%AA%D8%B1',
-        image : 'http://www.bekai-group.com/upload/cache/h_200_product_img_74.jpg',
-        quantity : '4.5 ليتر صندوق * 4',
-        details : 'على الرغم من أن دوار الشمس...' 
-    }
-]
+// const products = [
+//     {
+//         title: 'منارة شتورة بابا غنوج 180 غ',
+//         link: 'http://www.bekai-group.com/ar/products/1/%D9%85%D9%86%D8%A7%D8%B1%D8%A9-%D8%B4%D8%AA%D9%88%D8%B1%D8%A9-%D8%A8%D8%A7%D8%A8%D8%A7-%D8%BA%D9%86%D9%88%D8%AC-180-%D8%BA',
+//         image : 'http://www.bekai-group.com/upload/cache/h_200_product_img_1.jpg',
+//         quantity : '180 غ صندوق * 24',
+//         details : 'أحد أشهى أطباق المازة...' 
+//     },
+//     {
+//         title: 'منارة شتورة بابا غنوج 360 غ',
+//         link: 'http://www.bekai-group.com/ar/products/2/%D9%85%D9%86%D8%A7%D8%B1%D8%A9-%D8%B4%D8%AA%D9%88%D8%B1%D8%A9-%D8%A8%D8%A7%D8%A8%D8%A7-%D8%BA%D9%86%D9%88%D8%AC-360-%D8%BA',
+//         image : 'http://www.bekai-group.com/upload/cache/h_200_product_img_2.jpg',
+//         quantity : '360 غ صندوق *24',
+//         details : 'أحد أشهى أطباق المازة...' 
+//     },
+//     {
+//         title: 'منارة شتورة بديل الحامض 1 ليتر',
+//         link: 'http://www.bekai-group.com/ar/products/3/%D9%85%D9%86%D8%A7%D8%B1%D8%A9-%D8%B4%D8%AA%D9%88%D8%B1%D8%A9-%D8%A8%D8%AF%D9%8A%D9%84-%D8%A7%D9%84%D8%AD%D8%A7%D9%85%D8%B6-1-%D9%84%D9%8A%D8%AA%D8%B1',
+//         image : 'http://www.bekai-group.com/upload/cache/h_200_product_img_3.jpg',
+//         quantity : '1 ليتر صندوق * 12',
+//         details : 'الطهي لأسرة مشغولة غالبا...' 
+//     },
+//     {
+//         title: 'منارة شتورة شراب 600 مل جلاب',
+//         link: 'http://www.bekai-group.com/ar/products/5/%D9%85%D9%86%D8%A7%D8%B1%D8%A9-%D8%B4%D8%AA%D9%88%D8%B1%D8%A9-%D8%B4%D8%B1%D8%A7%D8%A8-600-%D9%85%D9%84-%D8%AC%D9%84%D8%A7%D8%A8',
+//         image : 'http://www.bekai-group.com/upload/cache/h_200_product_img_5.jpg',
+//         quantity : '600 مل صندوق * 12',
+//         details : 'زجاجة الجلاب لدىشركة سينيق...' 
+//     },
+//     {
+//         title: 'منارة شتورة شراب 3.5 ليتر قمر الدين',
+//         link: 'http://www.bekai-group.com/ar/products/7/%D9%85%D9%86%D8%A7%D8%B1%D8%A9-%D8%B4%D8%AA%D9%88%D8%B1%D8%A9-%D8%B4%D8%B1%D8%A7%D8%A8-3.5-%D9%84%D9%8A%D8%AA%D8%B1-%D9%82%D9%85%D8%B1-%D8%A7%D9%84%D8%AF%D9%8A%D9%86',
+//         image : 'http://www.bekai-group.com/upload/cache/h_200_product_img_7.jpg',
+//         quantity : '3.5 صندوق * 4',
+//         details : 'مكثف شراب قمر الدين عنصر...' 
+//     },
+//     {
+//         title: 'منارة شتورة شراب 3.5 ليتر جلاب',
+//         link: 'http://www.bekai-group.com/ar/products/8/%D9%85%D9%86%D8%A7%D8%B1%D8%A9-%D8%B4%D8%AA%D9%88%D8%B1%D8%A9-%D8%B4%D8%B1%D8%A7%D8%A8-3.5-%D9%84%D9%8A%D8%AA%D8%B1-%D8%AC%D9%84%D8%A7%D8%A8',
+//         image : 'http://www.bekai-group.com/upload/cache/h_200_product_img_8.jpg',
+//         quantity : '3.5 صندوق * 4',
+//         details : 'زجاجة الجلاب لدىشركة سينيق...' 
+//     },
+//     {
+//         title: 'منارة شتورة زيت 4.5 ليتر',
+//         link: 'http://www.bekai-group.com/ar/products/74/%D9%85%D9%86%D8%A7%D8%B1%D8%A9-%D8%B4%D8%AA%D9%88%D8%B1%D8%A9-%D8%B2%D9%8A%D8%AA-4.5-%D9%84%D9%8A%D8%AA%D8%B1',
+//         image : 'http://www.bekai-group.com/upload/cache/h_200_product_img_74.jpg',
+//         quantity : '4.5 ليتر صندوق * 4',
+//         details : 'على الرغم من أن دوار الشمس...' 
+//     }
+// ]
 
 
 ////////////////////////// Functions /////////////////////////////
@@ -111,11 +106,11 @@ function rightArrow(){
 function changeBanner(current,previous){
     // handles banner navigation
 
-    document.getElementById(contents[previous]).style.display = "none"
-    document.getElementById(contents[current]).style.display = "flex"
-    document.getElementById(contents[current]).classList.add("show-content")
-    document.getElementById(dots[current]).classList.add("active-dot")
-    document.getElementById(dots[previous]).classList.remove("active-dot")
+    $(contents[previous]).hide();
+    $(contents[current]).css("display","flex");
+    $(contents[current]).addClass("show-content")
+    $(dots[current]).addClass("active-dot")
+    $(dots[previous]).removeClass("active-dot")
 
     clearInterval(interval);
     intervalNav();
@@ -139,153 +134,226 @@ function intervalNav(){
 
 //categories functions
 
-function handlePepper(event){
-    // console.log("pepper");
-    if(event.type === 'mouseover'){
+function handlecateg1(event_type){
+    // console.log("categ1");
+    if(event_type === 'mouseover'){
         // console.log("mouse is over")
         
-        food.style.right = "50%";
-        cleaning.style.right = "75%"
+        categ2.css("right", "50%")
+        categ3.css("right", "75%")
     }
-    else if(event.type === 'mouseout'){
+    else if(event_type === 'mouseout'){
         // console.log("mouse is out")
-        food.style.right = "calc(100%/3)"
-        cleaning.style.right = "calc(200%/3)"
+        categ2.css("right", "calc(100%/3)")
+        categ3.css("right", "calc(200%/3)")
     }
 }
 
-function handleFood(event){
-    // console.log("food")
-    if(event.type === 'mouseover'){
+function handlecateg2(event_type){
+    // console.log("categ2")
+    if(event_type === 'mouseover'){
         // console.log("mouse is over")
-        food.style.right = "25%";
-        cleaning.style.right = "75%"
+        categ2.css("right", "25%")
+        categ3.css("right", "75%")
 
     }
-    else if(event.type === 'mouseout'){
+    else if(event_type === 'mouseout'){
         // console.log("mouse is out")
-        food.style.right = "calc(100%/3)"
-        cleaning.style.right = "calc(200%/3)"
+        categ2.css("right", "calc(100%/3)")
+        categ3.css("right", "calc(200%/3)")
     }
 }
 
-function handleCleaning(event){
-    console.log("cleaning")
-    if(event.type === 'mouseover'){
+function handlecateg3(event_type){
+    console.log("categ3")
+    if(event_type === 'mouseover'){
         // console.log("mouse is over")
-        food.style.right = "25%";
-        cleaning.style.right = "50%"
+        categ2.css("right", "25%")
+        categ3.css("right", "50%")
     }
-    else if(event.type === 'mouseout'){
+    else if(event_type === 'mouseout'){
         // console.log("mouse is out")
-        food.style.right = "calc(100%/3)"
-        cleaning.style.right = "calc(200%/3)"
+        categ2.css("right", "calc(100%/3)")
+        categ3.css("right", "calc(200%/3)")
     }
 }
 ////////
 
 // products functions
 
-function insertProducts(){
-    for( var i =0; i<products.length;i++){
+// function insertProducts(){
+//     for( var i =0; i<products.length;i++){
 
-        // creating each product's elements
-        var product = document.createElement('li');
-        var anchor = document.createElement('a');
-        var image_div = document.createElement('div');
-        var image = document.createElement('img');
-        var title = document.createElement('div');
-        var quantity = document.createElement('div');
-        var details = document.createElement('div');
+//         // creating each product's elements
+//         var product = document.createElement('li');
+//         var anchor = document.createElement('a');
+//         var image_div = document.createElement('div');
+//         var image = document.createElement('img');
+//         var title = document.createElement('div');
+//         var quantity = document.createElement('div');
+//         var details = document.createElement('div');
     
-        //adding proper classes and inner text
-        product.classList.add('product')
-        anchor.href = products[i].link;
-        image_div.classList.add('product-img');
-        image.src = products[i].image;
-        title.classList.add('product-title')
-        title.innerText = products[i].title;
-        quantity.classList.add('product-quantity')
-        quantity.innerText = products[i].quantity;
-        details.classList.add('product-details');
-        details.innerText = products[i].details;
+//         //adding proper classes and inner text
+//         product.addClass('product')
+//         anchor.href = products[i].link;
+//         image_div.addClass('product-img');
+//         image.src = products[i].image;
+//         title.addClass('product-title')
+//         title.innerText = products[i].title;
+//         quantity.addClass('product-quantity')
+//         quantity.innerText = products[i].quantity;
+//         details.addClass('product-details');
+//         details.innerText = products[i].details;
     
-        //appending elements to each other
-        image_div.appendChild(image);
-        anchor.appendChild(image_div);
-        anchor.appendChild(title);
-        anchor.appendChild(quantity);
-        anchor.appendChild(details);
-        product.appendChild(anchor);        //appending product to product list
-        document.getElementById('products').appendChild(product) 
-    }
-}
+//         //appending elements to each other
+//         image_div.appendChild(image);
+//         anchor.appendChild(image_div);
+//         anchor.appendChild(title);
+//         anchor.appendChild(quantity);
+//         anchor.appendChild(details);
+//         product.appendChild(anchor);        //appending product to product list
+//         $('#products').appendChild(product) 
+//     }
+// }
 
 function rightProduct(){
-    document.getElementById('products').style.transition = "left 0.4s ease-out";
-    document.getElementById('products').style.left = "-220px";
+    $('#products').css("transition","left 0.4s ease-out");
+    $('#products').css("left","-222px");
     setTimeout(function (){
-        document.getElementById('products').appendChild(document.getElementById('products').children[0]);
-        document.getElementById('products').style.transition = "";
-        document.getElementById('products').style.left = "0px";
+        $('#products').append($('#products li:first-child'));
+        $('#products').css("transition","");
+        $('#products').css("left","0px");
 
     }, 500);
 }
 
 function leftProduct(){
-    document.getElementById('products').style.transition = "";
-
-    document.getElementById('products').style.left = "-220px";
-    document.getElementById('products').insertBefore(document.getElementById('products').lastChild,document.getElementById('products').children[0]);
+    $('#products').css("transition","");
+    $('#products li:last-child').insertBefore($('#products li:first-child'));
+    $('#products').css("left","-222px");
     setTimeout(function (){
-        document.getElementById('products').style.transition = "left 0.4s ease-out";
-        document.getElementById('products').style.left = "0px";
+        $('#products').css("transition","left 0.4s ease-out");
+        $('#products').css("left","0");
 
     }, 1);
 
 }
 
+
+
+/// banners from db and display ///////////
+
+function getBanners(){
+
+    var request = $.ajax({
+        url: "http://localhost/test/php/get_banners.php",
+        method: "GET"
+    });
+        request.done(function(res){
+        var banners = JSON.parse(res);
+        loadBanners(banners);
+        });
+}
+
+getBanners();
+
+function loadBanners(banners){
+
+    for(var i =1 ; i<4 ; i++){
+        $('#content' + (i)).append(
+            "<h1 class=\"slide-banner-title\">" + banners[i-1]['title'] + "</h2>" +
+            "<p class=\"slide-banner-text\">" + banners[i-1]['details'] + "</p>"
+        )
+    }
+
+}
+
+////////////////
+
+
+/// categ names from db and display //////////
+
+function getCateg(){
+    var request = $.ajax({
+        url:"http://localhost/test/php/get_categ_names.php",
+        method: "GET"
+    });
+        request.done(function(res){
+            var names = JSON.parse(res);
+            loadNames(names);
+        });
+}
+
+function loadNames(names){
+    for(var i =1; i<4;i++){
+        $('#name' + i).text(names[i-1]['name'])
+    }
+}
+
+getCateg();
 //// End Of Functions ///////////////////////////////////////////////////////////////
 
 
 
 // nav banner
 intervalNav(); // auto nav banner
-left_arrow.addEventListener('click',leftArrow);
-right_arrow.addEventListener('click',rightArrow);
-document.getElementById(dots[0]).addEventListener('click',() =>{navDot(0)});
-document.getElementById(dots[1]).addEventListener('click',() =>{navDot(1)});
-document.getElementById(dots[2]).addEventListener('click',() =>{navDot(2)});
+left_arrow.on('click',leftArrow);
+right_arrow.on('click',rightArrow);
+$(dots[0]).on('click',() =>{navDot(0)});
+$(dots[2]).on('click',() =>{navDot(2)});
+$(dots[1]).on('click',() =>{navDot(1)});
 //
 
 
-//categories
+
+
 if(window.innerWidth > 600){
-    pepper.onmouseover = pepper.onmouseout = handlePepper;
-    food.onmouseover = food.onmouseout = handleFood;
-    cleaning.onmouseover = cleaning.onmouseout = handleCleaning;
+    categ1.mouseover(function(){
+        handlecateg1("mouseover");
+    }) 
+    categ1.mouseout(function(){
+        handlecateg1("mouseout");
+
+    })
+    categ2.mouseover(function(){
+        handlecateg2("mouseover");
+    }) 
+    categ2.mouseout(function(){
+        handlecateg2("mouseout");
+
+    })
+    categ3.mouseover(function(){
+        handlecateg3("mouseover");
+    }) 
+    categ3.mouseout(function(){
+        handlecateg3("mouseout");
+
+    })
+
 }
 
 //
 
 // products
-insertProducts();
-right_green_arrow.addEventListener('click',rightProduct);
-left_green_arrow.addEventListener('click',leftProduct)
+// insertProducts();
+
+$('.right-arrow-green').on('click',rightProduct);
+$('.left-arrow-green').on('click',leftProduct);
+
 //
 
 // resposnive menu
-document.getElementById("burger").addEventListener('click',()=>{
-    if(res_menu.style.right === '0px'){
-        res_menu.style.right = '-100%'
+$("#burger").on('click',()=>{
+    if(res_menu.css("right") === '0px'){
+        res_menu.css("right",'-100%');
         setTimeout(()=>{
-            res_menu.style.display = 'none';
+            res_menu.css("display" , 'none');
         },100)
     }
     else{
-        res_menu.style.display = 'block';
+        res_menu.css("display", 'block');
         setTimeout(()=>{
-            res_menu.style.right = '0px'
+            res_menu.css("right" , '0px');
 
         },0)
     }
@@ -294,6 +362,9 @@ document.getElementById("burger").addEventListener('click',()=>{
 
 
 
+
+$('.slide-banner')
+
 ////////////////////////////////////////////////////////////////
 //////////////////////////// map //////////////////////////////
 //////////////////////////////////////////////////////////////
@@ -301,10 +372,10 @@ document.getElementById("burger").addEventListener('click',()=>{
 var script = document.createElement('script');
   script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyBtwgyqv12iElBQTpy0h0xZU3mvMnhGXBI&callback=initMap";
   script.async = true;
-  
+
   // Attach your callback function to the `window` object
   window.initMap = function() {
-    map = new google.maps.Map(document.getElementById("map"), {
+    map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: 33.560153, lng: 35.375396 },
         zoom: 14,
         zoomControl: false,
@@ -362,6 +433,6 @@ var script = document.createElement('script');
 window.initMap = initMap;
 
   // Append the 'script' element to 'head'
-document.head.appendChild(script);
+document.head.append(script);
 
 /////////////////////////////////////////

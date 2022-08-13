@@ -1,3 +1,6 @@
+<?php
+ ob_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,12 +8,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
     <script  src="./script.js" defer></script>
 
     <title>Sainik-Traiding-Compay|Bekai-Group|شركة-سينيق-التجارية|مجموعة البقاعي</title>
 
 </head>
 <body>
+
     <div class="header-banner">
         <header>
             <div id="burger">
@@ -27,6 +33,7 @@
                         <div class="search-icon"></div>
                     </form>
                 </div>
+
                 <div class="res-langs">
 
                     <div class="english" href="#">English</div>
@@ -76,34 +83,42 @@
 
                     </nav>
             </div>
+            <div style="position:absolute; top:50px; right:calc(50% - 60px);">
+                <?php 
+                
+                session_start();
+                session_reset();
+                    if(!empty($_SESSION['user'])){
+
+                        print_r("welcome " . $_SESSION['user']['name']);
+                        session_unset();
+                        echo(
+                            "<a href=\"./index.php?logout=\"1\" style=\"position:absolute; top:30px; right:20px; background-color:#EA4645; color:white; font-wheight:bold; border:none; border-radius:5px; padding:5px; cursor:pointer;\" type=\"submit\" name=\"logout\" >LOGOUT</a>"
+                        );
+
+                        if(isset($_GET['logout'])){
+                            session_destroy();
+                            header('location: http://localhost/test/pages/login.php');
+                        }
+                    }
+                    else{
+                        echo "";
+                    }
+                ?>
+            </div>
             <a class="logo" href="http://www.bekai-group.com/ar/sainik-traiding-company">
             </a>
         </header>
         
         <div class="slide-banner">
             <div class="slide-banner-contents" id="content1">
-                <h2 class="slide-banner-title">
-                    جديدنا التميز في مخبزنا على الدوام
-                </h2>
-                <p class="slide-banner-text">
-                    خبز كبير ، خبز صغير ، شاميات، كعك على أنواعه ، كرواسون و فرنجي على انواعه.
-                </p>
+                
             </div>
             <div class="slide-banner-contents " id="content2">
-                <h2 class="slide-banner-title">
-                    عرض رمضان كريم
-                </h2>
-                <p class="slide-banner-text">
-                    بمناسبة الشهر الفضيل اشتري بقيمة 50،000 ليرة لبنانية من سوبر ماركت البقاعي وادخل السحب على هدية قيمة، رمضان كريم.
-                </p>
+            
             </div>
             <div class="slide-banner-contents" id="content3">
-                <h2 class="slide-banner-title">
-                    كل عام وانتم بخير، رمضان كريم
-                </h2>
-                <p class="slide-banner-text">
-                    اجمل التهاني بحلول شهر رمضان المبارك، كل عام وانتم بخير.
-                </p>
+           
             </div>
             <div class="slide-banner-nav">
                 <div class="left-arrow" id="left_arrow"></div>
@@ -117,28 +132,29 @@
         </div>
     </div>
     <div class="categories">
-        <div class="pepper">
-            <img src="./assets/img/peppers.bmp" alt="">
+        <div class="categ1">
+            <img src="http://localhost/test/uploads/categ_img_1.png" name="categ_img" alt="">
             <a class="nav-div" href="http://www.bekai-group.com/ar/our-products/category/1/">
-                <div>التوابل والحبوب</div>
-                <span class="nav-next"></span>
-            </a>
-        </div>
-        <div class="food">
-            <img src="./assets/img/food.bmp" alt="">
-            <a class="nav-div" href="http://www.bekai-group.com/ar/our-products/category/2/">
-                <div>
-                    مكونات الطعام
+                <div id="name1">                
+                 
                 </div>
                 <span class="nav-next"></span>
-
             </a>
         </div>
-        <div class="cleaning">
-            <img src="./assets/img/cleaning.bmp" alt="">
+        <div class="categ2">
+            <img src="http://localhost/test/uploads/categ_img_2.png" name="categ_img" alt="">
+            <a class="nav-div" href="http://www.bekai-group.com/ar/our-products/category/2/">
+                <div id="name2">
+            
+                </div>
+                <span class="nav-next"></span>
+            </a>
+        </div>
+        <div class="categ3">
+            <img src="http://localhost/test/uploads/categ_img_3.png" name="categ_img" alt="">
             <a class="nav-div" href="http://www.bekai-group.com/ar/our-products/category/3/">
-                <div>
-                    المنظفات
+                <div id="name3">
+              
                 </div>
                 <span class="nav-next"></span>
 
@@ -183,7 +199,29 @@
             <div class="right-arrow-green"></div>
             <div class="products-list-container">
                 <ul class="products-list" id="products">
-                    
+                <?php
+                include './php/get_products.php';
+                for($i = 0 ;$i<sizeof($products);$i++){
+                    echo "<li class = \"product\">
+                    <a href=\" {$products[$i]->link} \">
+                        <div class=\"product-img\">
+                            <img src=\"{$products[$i]->image} \">
+                        </div>
+                        <div class=\"product-title\"> {$products[$i]->title} </div>
+                        <div class=\"product-quantity\"> {$products[$i]->quantity} </div>
+                        <div class=\"product-details\">"; 
+                        if(strlen($products[$i]->details)>60){
+                            echo substr($products[$i]->details,0,strpos($products[$i]->details,' ',50)) . "...";
+                        }
+                        else{
+                            echo $products[$i]->details;
+                        }
+                        echo " </div>
+                    </a>
+                </li>";
+
+                }
+                ?>
                 </ul>
             </div>
         </div>
@@ -196,7 +234,7 @@
                 <div class="brands">
                     <div class="manara">
                         <div>
-                            <img src="./assets/img/manara.bmp" alt="manara logo">
+                            <img src="./assets/img/manara.bmp"  alt="manara logo">
                         </div>
                         <div class="manara-text">
                             منارة شتورة هي العلامة التجارية الجديدة للسلع الجاهزة للتوزيع محلياً وخارجياً، التابعة لشركة سينيق التجارية. وتضم هذه العلامة التجارية منتجات طعام شاملة مصنعة محلياً من...
@@ -332,3 +370,4 @@
     </footer>
 </body>
 </html>
+<?php ob_end_flush(); ?>

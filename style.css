@@ -187,24 +187,24 @@ footer{
 }
 
 .slide-banner{
+    
     width: 100%;
     max-width: 1170px;
     background:rgba(0, 0, 0, 0.8);
-    padding-bottom: 20px;
-    height: auto;
-    padding-bottom: 20px;
+    height: 195px;
 }
 .slide-banner-contents{
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 155px;
+    height: 165px;
 
 }
 .slide-banner-title{
+    
     color:#009b43;
     font-size: 36px;
-    margin-bottom: 0;
+    margin: 20px 0 0 0;
     text-align: center;
     direction: rtl;
 
@@ -212,7 +212,9 @@ footer{
 .slide-banner-text{
     color:#fff;
     font-size: 15px;
+    text-align:center;
     direction: rtl;
+    margin:0;
 
 }
 #content2,#content3{
@@ -267,22 +269,26 @@ footer{
     display: flex;
     width: 100%;
 }
-.categories div{
+.categories >div{
     position: absolute;
-    max-height: 650px;
+    height: 650px;
+}
+.categories div img{
+    height: 100%;
 }
 
 
-.pepper{
+.categ1{
     z-index: 15;
     right: 0;
+    
 }
-.food{
+.categ2{
     z-index: 16;
     right: calc(100%/3);
     transition: right 500ms ease;
 }
-.cleaning{
+.categ3{
     z-index: 17;
     right: calc(200%/3);
     transition: right 500ms ease;
@@ -441,6 +447,7 @@ footer{
     font-size:15px;
     color: #009b43;
     direction: rtl;
+    text-align:center;
     padding: 0 5px;
 }
 
@@ -458,11 +465,20 @@ footer{
     margin: 14px 0;
     direction: rtl;
     padding: 0 5px;
-
+    text-align: center;
 
 }
 .product-img{
     margin-top: 10px;
+    max-height:200px;
+    width: auto;
+}
+.product-img img{
+    max-height:200px;
+    width: auto;
+    max-width: 200px;
+
+
 }
 .left-arrow-green,.right-arrow-green{
     width: 24px;
@@ -644,8 +660,9 @@ background-color: #fff;}
 
     width: 100%;
 }
-.name-phone input:focus,.email-subject input:focus{
+.name-phone input:focus,.email-subject input:focus, .message textarea:focus{
     background-color: #fff;
+    color:#009b43
 }
 .message textarea{
     width: 458px;
@@ -699,6 +716,21 @@ background-color: #fff;}
 }
 .instagram{
     background-position: -10px -123px !important;
+}
+
+.admin-page{
+    display:flex;
+}
+.admin-col{
+    width: 40%;
+}
+.line{
+    width:5px;
+    height: 100vh;
+    background-color: black;
+}
+.products-admin{
+    margin-left:50px;
 }
 #map{
     width: 100%;
@@ -780,7 +812,6 @@ background-color: #fff;}
         width: 80%;
     }
     .slide-banner{
-        height: 280px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -814,7 +845,7 @@ background-color: #fff;}
         width: 100%;
         height: auto;
     }
-    .pepper{
+    .categ1{
         margin-top: 400px;
     }
     .categories{
@@ -824,6 +855,7 @@ background-color: #fff;}
         margin: 20px auto 0 auto;
     }
     .slide-banner{
+        height: 280px;
         background-color: black;
     }
 }
